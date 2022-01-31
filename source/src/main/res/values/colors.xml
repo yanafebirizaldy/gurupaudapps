@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#FF9100</color>
+    <color name="colorPrimaryDark">#EB8D02</color>
+    <color name="colorAccent">#FF9100</color>
+
+    <color name="lion_color">#F79D20</color>
+    <color name="elephant_color">#6A96B4</color>
+    <color name="cat_color">#FD9B23</color>
+    <color name="monkey_color">#A74A18</color>
+    <color name="tortoise_color">#9EBA25</color>
+    <color name="dolphin_color">#004494</color>
+
+</resources>

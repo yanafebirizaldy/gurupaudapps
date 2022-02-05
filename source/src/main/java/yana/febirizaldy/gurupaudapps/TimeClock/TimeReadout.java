@@ -22,7 +22,7 @@ class TimeReadout {
     };
 
     private static final String [] DIGITAL_NUMBER_NAME = new String[] {
-            " ",
+            "Nol Nol",
             "Satu",
             "Dua",
             "Tiga",

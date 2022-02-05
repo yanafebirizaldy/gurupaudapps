@@ -61,7 +61,8 @@ public class EnglishAlphabets_Activity extends AppCompatActivity {
 
     public void LaunchEnglishActivity(View view)
     {
-        startActivity(new Intent(getApplicationContext(), EnglishActivity.class));
+        //startActivity(new Intent(getApplicationContext(), EnglishActivity.class));
+        this.finish();
     }
 
 

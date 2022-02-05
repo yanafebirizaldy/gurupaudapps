@@ -9,7 +9,6 @@ import android.speech.tts.TextToSpeech;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
@@ -26,18 +25,24 @@ import yana.febirizaldy.gurupaudapps.FruitsandVegetables.FruitsActivity;
 import yana.febirizaldy.gurupaudapps.FruitsandVegetables.VegetablesActivity;
 import yana.febirizaldy.gurupaudapps.HumanBodyParts.PartsOfBodyActivity;
 import yana.febirizaldy.gurupaudapps.Maths_Category.MathsDashboard;
-import yana.febirizaldy.gurupaudapps.QuizMarks.QuizResultDashboard;
 import yana.febirizaldy.gurupaudapps.R;
 import yana.febirizaldy.gurupaudapps.Shapes.ShapesActivity;
 import yana.febirizaldy.gurupaudapps.TimeClock.MainActivity;
+import yana.febirizaldy.gurupaudapps.bunga.Bunga;
+import yana.febirizaldy.gurupaudapps.ceritaOCR.ceritaOCR;
+import yana.febirizaldy.gurupaudapps.drawing.ColorImageLV2;
+import yana.febirizaldy.gurupaudapps.drawing.Drawing;
+import yana.febirizaldy.gurupaudapps.kendaraan.Kendaraan;
 import yana.febirizaldy.gurupaudapps.learncolors.ColorActivity;
+
+import yana.febirizaldy.gurupaudapps.pakaian.Pakaian;
 
 public class Dashboard extends Fragment
 {
     private TextToSpeech mTTS;
 
     View view;
-    private LinearLayout english, maths, animals, bodyparts, fruits, vegetables, shapes, days, months, islamicMonths, clock, warna;
+    private LinearLayout cerita, english, maths, animals, bodyparts, fruits, vegetables, shapes, days, months, islamicMonths, clock, warna, pakaian, kendaraan, bunga, melukis, mewarnai;
     Toolbar toolbar;
 
     @Override
@@ -61,6 +66,12 @@ public class Dashboard extends Fragment
 
         clock = view.findViewById(R.id.clockActivityLayoutID);
         warna = view.findViewById(R.id.colorActivityLayoutID);
+        pakaian = view.findViewById(R.id.pakaianActivityLayoutID);
+        kendaraan = view.findViewById(R.id.kendaraanActivityLayoutID);
+        bunga = view.findViewById(R.id.bungaActivityLayoutID);
+        melukis = view.findViewById(R.id.melukisDashboardLayoutID);
+        mewarnai = view.findViewById(R.id.mewarnaiDashboardLayoutID);
+        cerita = view.findViewById(R.id.ocrActivityLayoutID);
 
         mTTS = new TextToSpeech(getContext(), new TextToSpeech.OnInitListener() {
             @Override
@@ -83,6 +94,32 @@ public class Dashboard extends Fragment
                                 return;
                             }
                         });
+
+                       cerita.setOnClickListener(new View.OnClickListener() {
+                           @Override
+                           public void onClick(View view) {
+                               speakOcr();
+                               startActivity(new Intent(getContext(), ceritaOCR.class));
+                               return;
+                           }
+                       });
+
+                        melukis.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                speakMelukis();
+                                startActivity(new Intent(getContext(), Drawing.class));
+                                return;
+                            }
+                        });
+                        mewarnai.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                speakMewarnai();
+                                startActivity(new Intent(getContext(), ColorImageLV2.class));
+                                return;
+                            }
+                        });
                         maths.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
@@ -99,7 +136,14 @@ public class Dashboard extends Fragment
                                 return;
                             }
                         });
-
+                        bunga.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                speakBunga();
+                                startActivity(new Intent(getContext(), Bunga.class));
+                                return;
+                            }
+                        });
                         fruits.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
@@ -137,6 +181,22 @@ public class Dashboard extends Fragment
                             public void onClick(View view) {
                                 speakColor();
                                 startActivity(new Intent(getContext(), ColorActivity.class));
+                                return;
+                            }
+                        });
+                        pakaian.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                speakPakaian();
+                                startActivity(new Intent(getContext(), Pakaian.class));
+                                return;
+                            }
+                        });
+                        kendaraan.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                speakKendaraan();
+                                startActivity(new Intent(getContext(), Kendaraan.class));
                                 return;
                             }
                         });
@@ -190,14 +250,44 @@ public class Dashboard extends Fragment
         mTTS.speak("Belajar Membaca dan Menulis", TextToSpeech.QUEUE_FLUSH, null);
         mTTS.setSpeechRate(1.0f);
     }
+    public void speakMelukis()
+    {
+        mTTS.speak("Belajar Melukis", TextToSpeech.QUEUE_FLUSH, null);
+        mTTS.setSpeechRate(1.0f);
+    }
+    public void speakOcr()
+    {
+        mTTS.speak("Scan Cerita Dongeng", TextToSpeech.QUEUE_FLUSH, null);
+        mTTS.setSpeechRate(1.0f);
+    }
+    public void speakMewarnai()
+    {
+        mTTS.speak("Belajar Mewarnai", TextToSpeech.QUEUE_FLUSH, null);
+        mTTS.setSpeechRate(1.0f);
+    }
     public void speakClock()
     {
         mTTS.speak("Belajar Membaca Jam", TextToSpeech.QUEUE_FLUSH, null);
         mTTS.setSpeechRate(1.0f);
     }
+    public void speakBunga()
+    {
+        mTTS.speak("Belajar Mengenal aneka bunga", TextToSpeech.QUEUE_FLUSH, null);
+        mTTS.setSpeechRate(1.0f);
+    }
     public void speakColor()
     {
         mTTS.speak("Belajar Bermacam macam warna", TextToSpeech.QUEUE_FLUSH, null);
+        mTTS.setSpeechRate(1.0f);
+    }
+    public void speakPakaian()
+    {
+        mTTS.speak("Belajar mengenal pakaian", TextToSpeech.QUEUE_FLUSH, null);
+        mTTS.setSpeechRate(1.0f);
+    }
+    public void speakKendaraan()
+    {
+        mTTS.speak("Belajar mengenal kendaraan", TextToSpeech.QUEUE_FLUSH, null);
         mTTS.setSpeechRate(1.0f);
     }
     public void speakMaths()
@@ -245,11 +335,7 @@ public class Dashboard extends Fragment
         mTTS.speak("Belajar Nama Nama Bulan Islam", TextToSpeech.QUEUE_FLUSH, null);
         mTTS.setSpeechRate(1.0f);
     }
-    public void speakQuiz()
-    {
-        mTTS.speak("Quiz", TextToSpeech.QUEUE_FLUSH, null);
-        mTTS.setSpeechRate(1.0f);
-    }
+
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater)
@@ -258,14 +344,5 @@ public class Dashboard extends Fragment
         super.onCreateOptionsMenu(menu, inflater);
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.action_quizResult:
-                startActivity(new Intent(getActivity(), QuizResultDashboard.class));
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-    }
+
 }

@@ -11,12 +11,14 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
 //import android.support.annotation.Nullable;
-import android.support.annotation.Nullable;
+//import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 
 import java.util.Calendar;
+
+import androidx.annotation.Nullable;
 
 public class AnalogClock extends View {
     private static final float CLOCK_RADIUS_PERCENT = 40;

@@ -191,7 +191,7 @@
                     tools:ignore="NestedWeights" />
 
                 <LinearLayout
-                    android:id="@+id/englishActivityLayoutID"
+                    android:id="@+id/pakaianActivityLayoutID"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:orientation="vertical"
@@ -202,13 +202,13 @@
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_weight="2"
-                        android:src="@drawable/burung"/>
+                        android:src="@drawable/pakaian"/>
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_weight="1.5"
-                        android:text="Burung"
+                        android:text="Pakaian"
                         android:textAlignment="center"
                         android:textColor="@android:color/black"
                         android:textSize="16sp"
@@ -223,7 +223,7 @@
                     android:layout_weight="0.2"/>
 
                 <LinearLayout
-                    android:id="@+id/mathActivityLayoutID"
+                    android:id="@+id/bungaActivityLayoutID"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:orientation="vertical"
@@ -255,7 +255,7 @@
                     android:layout_weight="0.2"/>
 
                 <LinearLayout
-                    android:id="@+id/animalsActivityLayoutID"
+                    android:id="@+id/kendaraanActivityLayoutID"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:orientation="vertical"
@@ -455,7 +455,7 @@
                     android:layout_weight="0.2"/>
 
                 <LinearLayout
-                    android:id="@+id/vegetablesActivityLayoutID"
+                    android:id="@+id/ocrActivityLayoutID"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:orientation="vertical"
@@ -689,7 +689,7 @@
 
 
                 <LinearLayout
-                    android:id="@+id/quizDashboardLayoutID"
+                    android:id="@+id/melukisDashboardLayoutID"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:orientation="vertical"
@@ -722,7 +722,7 @@
 
 
                 <LinearLayout
-                    android:id="@+id/quizDashboardLayoutID"
+                    android:id="@+id/mewarnaiDashboardLayoutID"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:orientation="vertical"

@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.speech.RecognitionListener;
 import android.speech.RecognizerIntent;
 import android.speech.SpeechRecognizer;
+import android.speech.tts.TextToSpeech;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
@@ -14,13 +15,16 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Locale;
 
 
 public class ColorActivity extends Activity {
 
     private static final String TAG = "LearnColorsSTT";
+    private TextToSpeech textToSpeech;
 
     private Pair mCurrentColor;
     private SpeechRecognizer sr;
@@ -48,6 +52,7 @@ public class ColorActivity extends Activity {
 				new Pair(Color.rgb(255, 192, 203), "pink")
 		};
 
+
 		final RandomItemList<Pair> colors = new RandomItemList<Pair>(colorArray);
 
 		screenText = new TextView(this);
@@ -73,12 +78,49 @@ public class ColorActivity extends Activity {
             }
         });
 
-        suara.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //screenText.setText(mCurrentColor.value);
-            }
-        });
+
+                textToSpeech = new TextToSpeech(this, new TextToSpeech.OnInitListener() {
+                    @Override
+                    public void onInit(int status) {
+                        if(status == TextToSpeech.SUCCESS)
+                        {
+                            int langResult = textToSpeech.setLanguage(new Locale("id", "ID"));
+                            if(langResult == TextToSpeech.LANG_NOT_SUPPORTED || langResult == TextToSpeech.LANG_MISSING_DATA)
+                            {
+                                Toast.makeText(getApplicationContext(), "Language Not Supported", Toast.LENGTH_SHORT).show();
+                            }
+                            else
+                            {
+                                //blue,black,red,greem,yellow,white,gray,orange,purple,brown,pink
+                                suara.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View view) {
+                                        //screenText.setText(mCurrentColor.value);
+                                        if(mCurrentColor.value.equals("blue"))  Baca("biru");
+                                        if(mCurrentColor.value.equals("black"))  Baca("hitam");
+                                        if(mCurrentColor.value.equals("red"))  Baca("merah");
+                                        if(mCurrentColor.value.equals("green"))  Baca("hijau");
+                                        if(mCurrentColor.value.equals("yellow"))  Baca("kuning");
+                                        if(mCurrentColor.value.equals("white"))  Baca("putih");
+                                        if(mCurrentColor.value.equals("gray"))  Baca("abu abu");
+                                        if(mCurrentColor.value.equals("orange"))  Baca("jingga");
+                                        if(mCurrentColor.value.equals("purple"))  Baca("ungu");
+                                        if(mCurrentColor.value.equals("brown"))  Baca("cokelat");
+                                        if(mCurrentColor.value.equals("pink"))  Baca("merah muda");
+                                    }
+                                });
+
+
+
+                            }
+                        }
+                        else
+                        {
+                            Toast.makeText(getApplicationContext(), "Initializatin Failed", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+
 
 		//LinearLayout.LayoutParams screenTextParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         //rootLayout.addView(screenText, screenTextParams);
@@ -163,4 +205,9 @@ public class ColorActivity extends Activity {
         }
     }
 
+    void Baca(final String baca)
+    {
+        textToSpeech.speak(baca, TextToSpeech.QUEUE_FLUSH, null);
+        textToSpeech.setSpeechRate(0.5f);
+    }
 }

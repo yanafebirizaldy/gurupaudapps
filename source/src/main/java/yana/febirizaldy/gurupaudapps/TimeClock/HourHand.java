@@ -5,7 +5,9 @@
 package yana.febirizaldy.gurupaudapps.TimeClock;
 
 import android.graphics.Paint;
-import android.support.annotation.VisibleForTesting;
+
+import androidx.annotation.VisibleForTesting;
+//import android.support.annotation.VisibleForTesting;
 
 public class HourHand extends Hand {
     public HourHand(Paint paint, float widthPercent, float lengthPercent) {

@@ -3,6 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="yana.febirizaldy.gurupaudapps">
 
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
     <application
         android:largeHeap="true"
         android:allowBackup="true"
@@ -12,25 +18,34 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
-        <activity android:name="yana.febirizaldy.gurupaudapps.Quizzes.QuizDashboard"
-            android:screenOrientation="portrait"/>
+
         <activity android:name="yana.febirizaldy.gurupaudapps.TimeClock.MainActivity"
             android:screenOrientation="portrait"/>
         <activity android:name="yana.febirizaldy.gurupaudapps.learncolors.ColorActivity"
             android:screenOrientation="portrait"/>
-        <activity android:name="yana.febirizaldy.gurupaudapps.Quizzes.StartQuizActivity"
-            android:screenOrientation="portrait" />
-        <activity android:name="yana.febirizaldy.gurupaudapps.QuizMarks.MarksList"
-            android:screenOrientation="portrait"
-            android:parentActivityName="yana.febirizaldy.gurupaudapps.QuizMarks.QuizResultDashboard"/>
+        <activity android:name="yana.febirizaldy.gurupaudapps.pakaian.Pakaian"
+            android:screenOrientation="portrait"/>
+        <activity android:name="yana.febirizaldy.gurupaudapps.kendaraan.Kendaraan"
+            android:screenOrientation="portrait"/>
+        <activity android:name="yana.febirizaldy.gurupaudapps.bunga.Bunga"
+            android:screenOrientation="portrait"/>
+        <activity android:name="yana.febirizaldy.gurupaudapps.drawing.Drawing"
+            android:screenOrientation="landscape"/>
+        <activity android:name="yana.febirizaldy.gurupaudapps.drawing.ColorImageLV2"
+            android:screenOrientation="landscape"/>
+        <activity android:name="yana.febirizaldy.gurupaudapps.drawing.DrawingLV2"
+            android:screenOrientation="landscape"/>
+        <activity android:name="yana.febirizaldy.gurupaudapps.gamebalon.ColorClickLV2"
+            android:screenOrientation="landscape"/>
+        <activity android:name="yana.febirizaldy.gurupaudapps.puzzle.PuzzleX"
+            android:screenOrientation="landscape"/>
+        <activity android:name="yana.febirizaldy.gurupaudapps.ceritaOCR.ceritaOCR"
+            android:screenOrientation="portrait"/>
         <activity
             android:name="yana.febirizaldy.gurupaudapps.Animals.AnimalsActivity"
             android:parentActivityName="yana.febirizaldy.gurupaudapps.Dashboard.MainActivity"
             android:screenOrientation="portrait" />
-        <activity
-            android:name="yana.febirizaldy.gurupaudapps.QuizMarks.QuizResultDashboard"
-            android:parentActivityName="yana.febirizaldy.gurupaudapps.Dashboard.MainActivity"
-            android:screenOrientation="portrait" />
+
         <activity
             android:name="yana.febirizaldy.gurupaudapps.HumanBodyParts.PartsOfBodyActivity"
             android:parentActivityName="yana.febirizaldy.gurupaudapps.Dashboard.MainActivity"

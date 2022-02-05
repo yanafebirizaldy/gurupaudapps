@@ -3,7 +3,7 @@ package yana.febirizaldy.gurupaudapps.TimeClock;
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
 import android.speech.tts.UtteranceProgressListener;
-import android.support.annotation.Nullable;
+//import android.support.annotation.Nullable;
 //import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -13,6 +13,7 @@ import android.widget.Toast;
 import java.util.HashMap;
 import java.util.Locale;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import yana.febirizaldy.gurupaudapps.R;
 
@@ -56,10 +57,10 @@ public class MainActivity extends AppCompatActivity {
                     return;
                 }
 
-                Locale swedish = new Locale("swe");
-                int setLanguageResult = tts.setLanguage(swedish);
+                Locale indonesia = new Locale("id","ID");
+                int setLanguageResult = tts.setLanguage(indonesia);
                 if (setLanguageResult == TextToSpeech.LANG_MISSING_DATA || setLanguageResult == TextToSpeech.LANG_NOT_SUPPORTED) {
-                    Log.w(TAG, "Swedish not available: " + setLanguageResult);
+                    Log.w(TAG, "Bahasa Indonesia not available: " + setLanguageResult);
                     Toast.makeText(getApplicationContext(),
                             "Jag kan prata med dig om du fixar en svensk talsyntes!",
                             Toast.LENGTH_LONG).show();
@@ -67,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
                     return;
                 }
 
-                Log.i(TAG, "Swedish TTS set up, enabling buttons");
+                Log.i(TAG, "Indonesia TTS set up, enabling buttons");
 
                 analogReadout.setEnabled(true);
                 digitalClock.setEnabled(true);

@@ -25,7 +25,7 @@
         android:text=""
         android:textAlignment="center"
         android:textAllCaps="false"
-        android:textSize="30sp"
+        android:textSize="20sp"
         android:lines="2"
         android:gravity="top"
         android:enabled="false"/>

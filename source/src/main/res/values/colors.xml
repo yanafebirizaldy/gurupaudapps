@@ -11,4 +11,7 @@
     <color name="tortoise_color">#9EBA25</color>
     <color name="dolphin_color">#004494</color>
 
+    <color name="pinColor">@color/black_overlay</color>
+    <color name="black_overlay">#66000000</color>
+    <color name="lightGrey">#DDDDDD</color>
 </resources>

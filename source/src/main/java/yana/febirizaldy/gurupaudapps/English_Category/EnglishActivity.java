@@ -77,6 +77,7 @@ public class EnglishActivity extends AppCompatActivity
 
     public void LaunchDashboard(View view)
     {
-        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+        //startActivity(new Intent(getApplicationContext(), MainActivity.class));
+        this.finish();
     }
 }
